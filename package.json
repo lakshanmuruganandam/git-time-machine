@@ -1,5 +1,5 @@
 {
-  "name": "git-time-machine",
+  "name": "@lakshanmuruganandam/git-time-machine",
   "version": "1.0.7",
   "description": "Interactively travel between your recent Git branches with a beautiful UI.",
   "main": "index.js",
