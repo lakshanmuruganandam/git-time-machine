@@ -24,14 +24,14 @@ const banner = `
 `;
 
 console.log(pc.magenta(banner));
-console.log(pc.gray('    Where are we going today?\n'));
+console.log(pc.gray('    Where are we going today?'));
+console.log(pc.dim('    Architected by @lakshanmuruganandam\n'));
 
 try {
   // Check if we are in a git repo
   execSync('git rev-parse --is-inside-work-tree', { stdio: 'ignore' });
 } catch (e) {
   console.log(pc.red('❌ You are not inside a Git repository. Exiting.'));
-  console.log(pc.cyan('\nArchitected by @lakshanmuruganandam\n'));
   process.exit(1);
 }
 
@@ -41,7 +41,6 @@ try {
   
   if (!rawBranches) {
     console.log(pc.green('✨ Your repository is completely empty. No branches found.'));
-    console.log(pc.cyan('\nArchitected by @lakshanmuruganandam\n'));
     process.exit(0);
   }
 
@@ -52,7 +51,6 @@ try {
 
   if (branches.length === 0) {
     console.log(pc.green(`✨ You only have the current branch (${currentBranch}). Nowhere to travel to.`));
-    console.log(pc.cyan('\nArchitected by @lakshanmuruganandam\n'));
     process.exit(0);
   }
 
@@ -97,8 +95,6 @@ try {
     console.log(pc.red(`❌ Failed to travel to timeline: `) + pc.white(selected));
     if (e.stderr) console.log(pc.gray(e.stderr.toString()));
   }
-
-  console.log(pc.cyan('\nArchitected by @lakshanmuruganandam\n'));
 
 } catch (error) {
   console.error(pc.red('\nAn unexpected error occurred:'), error.message);
